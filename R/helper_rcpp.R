@@ -1535,6 +1535,7 @@ htlgmm.default<-function(
                 inv_psXtX_final<-prod_rcpp(prod_rcpp(inv_psXtX_non0,psXtX_mid_non0),inv_psXtX_non0)
 
 		    #store
+		    inv_C_store = inv_C
 		    inv_C_half_store = inv_C_half
 		    C_half_store = C_half
 
@@ -1619,6 +1620,7 @@ htlgmm.default<-function(
 	return_list<-c(return_list,list("pseudo_Xy_list"=pseudo_Xy_list))
 	#
 	return_list<-c(return_list,list("inv_C_half"=inv_C_half_store))
+	return_list<-c(return_list,list("inv_C"=inv_C_store))
 	return_list<-c(return_list,list("C_half"=C_half_store))
 
 	

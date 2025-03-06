@@ -1,0 +1,26 @@
+Package: htlgmm
+Type: Package
+Title: Hetergeneous Transfer Learning via Generalized Method of Moments
+Version: 0.1.0
+Authors@R: c(
+  person(given = "Ruzhang", family = "Zhao", email = "ruzhangzhao@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3420-5771"))
+  )
+Maintainer: Ruzhang Zhao <ruzhangzhao@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+LinkingTo: Rcpp, RcppEigen
+Imports: 
+    glmnet,
+    stats,
+    MASS,
+    magic,
+    caret,
+    corpcor,
+    pROC,
+    speedglm,
+    Rcpp,
+    RcppEigen,
+    survival
+License: GPL-3
+Encoding: UTF-8
+RoxygenNote: 7.2.1

@@ -980,7 +980,7 @@ htlgmm.default<-function(
 
     if(family == "gaussian"){pseudo_Xy=pseudo_Xy_gaussian_rcpp
     }else if(family == "binomial"){pseudo_Xy=pseudo_Xy_binomial_rcpp}
-
+	
     Zid<-(pA+1):(pA+pZ)
     if(pW>0){Wid<-(pA+pZ+1):(pA+pZ+pW)}else{Wid=NULL}
     Acolnames=NULL
@@ -1018,6 +1018,8 @@ htlgmm.default<-function(
                              hat_thetaA,V_thetaA)
     hat_thetaA<-thetaA_list$hat_thetaA
     V_thetaA<-thetaA_list$V_thetaA
+	hat_thetaA_store = hat_thetaA
+
 
     ###########--------------###########
     # define penalty assignment
@@ -1046,6 +1048,7 @@ htlgmm.default<-function(
                                     initial_with_type,
                                     fix_penalty)
         beta_initial<-initial_res$beta_initial
+	    beta_initial_store = beta_initial
     }
     if (penalty_type == "adaptivelasso"){
         if(is.null(weight_adaptivelasso)){
@@ -1120,7 +1123,7 @@ htlgmm.default<-function(
     pseudo_Xy_list<-pseudo_Xy(C_half=C_half,Z=Z,W=W,A=A,y=y,
                               beta=beta_initial,hat_thetaA=hat_thetaA,
                               ext_study_info=ext_study_info,X=X,XR=XR)
-
+	pseudo_Xy_initial = pseudo_Xy_list
     initial_sf<-nZ/sqrt(nrow(pseudo_Xy_list$pseudo_X))
     pseudo_X<-pseudo_Xy_list$pseudo_X/initial_sf
     pseudo_y<-pseudo_Xy_list$pseudo_y/initial_sf
@@ -1606,6 +1609,10 @@ htlgmm.default<-function(
     if(is.null(fix_C) & is.null(fix_inv_C)){
         return_list<-c(return_list,list("Delta_opt"=inv_C))
     }
+	return_list<-c(return_list,list("pseudo_Xy_list_initial"=pseudo_Xy_initial))
+	return_list<-c(return_list,list("thetaA_hat_initial"=hat_thetaA_store))
+	return_list<-c(return_list,list("beta_initial"=beta_initial_store))
 	return_list<-c(return_list,list("pseudo_Xy_list"=pseudo_Xy_list))
+	
     return(return_list)
 }

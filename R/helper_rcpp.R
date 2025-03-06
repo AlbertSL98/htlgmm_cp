@@ -1534,6 +1534,10 @@ htlgmm.default<-function(
                 psXtX_mid_non0<-psXtX_mid[index_nonzero,index_nonzero,drop=F]
                 inv_psXtX_final<-prod_rcpp(prod_rcpp(inv_psXtX_non0,psXtX_mid_non0),inv_psXtX_non0)
 
+		    #store
+		    inv_C_half_store = inv_C_half
+		    C_half_store = C_half
+
                 if(sum(diag(inv_psXtX_non0)<=0)>0){
                     psXtX_mid_non0_half<-sqrtcho_rcpp2(psXtX_mid_non0)
                     inv_psXtX_final<-self_crossprod_rcpp(prod_rcpp(psXtX_mid_non0_half,inv_psXtX_non0))
@@ -1613,6 +1617,10 @@ htlgmm.default<-function(
 	return_list<-c(return_list,list("thetaA_hat_initial"=hat_thetaA_store))
 	return_list<-c(return_list,list("beta_initial"=beta_initial_store))
 	return_list<-c(return_list,list("pseudo_Xy_list"=pseudo_Xy_list))
+	#
+	return_list<-c(return_list,list("inv_C_half"=inv_C_half_store))
+	return_list<-c(return_list,list("C_half"=C_half_store))
+
 	
     return(return_list)
 }

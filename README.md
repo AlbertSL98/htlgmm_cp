@@ -1,5 +1,10 @@
 # README
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+I am studying the code from https://github.com/RuzhangZhao/htlgmm/tree/main,
+The author is Dr. Ruzhang Zhao
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 Please see the google colab link [https://colab.research.google.com/drive/1TWE3ZT30fY1umL_ILoeC2iwS8oTn66aT?usp=sharing] for tutorial. 
 
 To install the $\texttt{htlgmm}$ package, the user can follow

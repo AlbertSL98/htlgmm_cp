@@ -106,6 +106,19 @@ Delta_opt_rcpp<-function(y,Z,W,family,
         Delta12 = Delta12 + Cov_U1theta
     }
     Delta = rbind(cbind(V_U1,Delta12),cbind(t(Delta12),Delta22))
+	print('DX'); print(DX)
+print('DZ'); print(DZ)
+print('DZ2'); print(DZ2)
+print('V_U1'); print(V_U1)
+print('V_U2'); print(V_U2)
+print('Cov_U1_U2'); print(Cov_U1_U2)
+print('GammaZZ'); print(GammaZZ)
+print('GammaZA'); print(GammaZA)
+print('inv_GammaAA'); print(inv_GammaAA)
+print('DDA'); print(DDA)
+print('Cov_U1theta'); print(Cov_U1theta)
+print('Cov_U2theta'); print(Cov_U2theta)
+
     Delta
 }
 
